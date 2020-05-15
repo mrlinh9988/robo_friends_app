@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  one: 
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - checkout
+      - run: echo "alo 123"
+  two: 
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - checkout
+      - run: echo "alo 456"
+workflows:
+  version: 2
+  one_two:
+    jobs:
+      - one
+      - two 
+      
